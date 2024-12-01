@@ -14,12 +14,20 @@
 <body>
 <header>
     <nav>
+        <?php
+        session_start();
+        ?>
+
         <a href="index.php">Home</a>
         <a href="products.php">Products</a>
         <a href="cart.php">Cart</a>
         <a href="order_history.php">Order History</a>
-        <a href="login.php" class="auth-button">Login</a>
-        <a href="register.php" class="auth-button">Register</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="logout.php" class="auth-button">Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="auth-button">Login</a>
+            <a href="register.php" class="auth-button">Register</a>
+        <?php endif; ?>
     </nav>
 </header>
 <div class="hero">
