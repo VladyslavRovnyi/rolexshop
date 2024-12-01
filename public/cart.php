@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute(['session_id' => $session_id, 'product_id' => $product_id]);
         }
 
-        echo json_encode(['success' => true]);
+//        echo json_encode(['success' => true]);
     } catch (PDOException $e) {
         error_log("Database error: " . $e->getMessage());
         http_response_code(500);
